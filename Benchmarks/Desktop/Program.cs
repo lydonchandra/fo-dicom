@@ -9,7 +9,8 @@ namespace DICOM.Benchmarks.Desktop
     {
         public static void Main(string[] args)
         {
-            BenchmarkRunner.Run<DicomClientBenchmarks>();
+            BenchmarkRunner.Run<DicomAlgorithmsBenchmarks>();
+            // BenchmarkRunner.Run<DicomClientBenchmarks>();
         }
     }
 }
