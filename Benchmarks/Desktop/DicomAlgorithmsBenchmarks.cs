@@ -12,7 +12,7 @@ namespace DICOM.Benchmarks.Desktop
         [Params(500)]
         public int InputSizePx;
 
-        [Params(1000, 2000)]
+        [Params(1000)]
         public int OutputSizePx;
 
         [GlobalSetup]
@@ -29,18 +29,25 @@ namespace DICOM.Benchmarks.Desktop
                 data, InputSizePx, InputSizePx, OutputSizePx, OutputSizePx);
         }
 
-        [Benchmark]
-        public void RescaleGrayscale_RegularForLoop()
-        {
-            BilinearInterpolation.RescaleGrayscale_RegularForLoop(
-                data, InputSizePx, InputSizePx, OutputSizePx, OutputSizePx);
-        }
+        // [Benchmark]
+        // public void RescaleGrayscale_RegularForLoop()
+        // {
+        //     BilinearInterpolation.RescaleGrayscale_RegularForLoop(
+        //         data, InputSizePx, InputSizePx, OutputSizePx, OutputSizePx);
+        // }
 
         [Benchmark]
         public void RescaleGrayscale_UseMatrix()
         {
-            BilinearInterpolation.RescaleGrayscale_UseMatrix(
+            BilinearInterpolation.RescaleGrayscaleUseFloat(
                 data, InputSizePx, InputSizePx, OutputSizePx, OutputSizePx);
         }
+
+        // [Benchmark]
+        // public void RescaleGrayscale_UseMatrix_LessVars()
+        // {
+        //     BilinearInterpolation.RescaleGrayscale_UseMatrix_LessVars(
+        //         data, InputSizePx, InputSizePx, OutputSizePx, OutputSizePx);
+        // }
     }
 }
